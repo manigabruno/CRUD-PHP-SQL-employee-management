@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>employee management</title>
+    <title>gestion des employés</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <a href="ajouter.html" class="Btn_add"> <img src="Gestion des employés/images/plus.png">Ajouter</a>
+        <a href="ajouter.php" class="Btn_add"> <img src="Gestion des employés/images/plus.png">Ajouter</a>
         <table>
             <tr>
                 <th>Nom</th>
@@ -19,19 +19,10 @@
             </tr>
             <tr>
                 <td>steve</td>
-                <td>Johnson</td>
+                <td>Johns</td>
                 <td>25 ans</td>
-                <td> <a href="modifier.html"><img src="Gestion des employés/images/pen.png"></a></td>
+                <td> <a href="modifier.php"><img src="Gestion des employés/images/pen.png"></a></td>
                 <td> <a href="#"><img src="Gestion des employés/images/trash.png"></a></td>
-               
-            </tr>
-            <tr>
-                <td>steve</td>
-                <td>Johnson</td>
-                <td>25 ans</td>
-                <td> <a href="modifier.html"><img src="Gestion des employés/images/pen.png"></a></td>
-                <td> <a href="#"><img src="Gestion des employés/images/trash.png"></a></td>
-               
             </tr>
         </table>
 

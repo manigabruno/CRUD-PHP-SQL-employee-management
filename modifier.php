@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="form">
-        <a href="index.html" class="back_btn"><img src="Gestion des employés/images/back.png">retour</a>
+        <a href="index.php" class="back_btn"><img src="Gestion des employés/images/back.png">retour</a>
         <h2>Modifier l'employé</h2>
         <p class="erreur_message">
             veuillez remplir tous les champs
