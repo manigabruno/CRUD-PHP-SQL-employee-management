@@ -8,6 +8,13 @@
 </head>
 <body>
     <?php
+     // connexion a la bdd
+     include_once "connexion.php";
+    //  on recupere l'id dans le lien
+    $id = $_GET['id'];
+     // requete pour afficher les infos d'un employé
+     $req = mysqli_query($con , "SELECT * FROM employe WHERE id = $id");
+     $row = mysqli_fetch_assoc($req);
 
     // verifier que le bouton cliqué a bien été ajouté
     if(isset($_POST['button'])) {
@@ -15,38 +22,40 @@
         extract($_POST);
         // vérifier que tous les champs on été remplis
         if(isset($nom) && isset($prenom) && $age) {
-            // connexion a bdd
-            include_once "connexion.php";
-            // requete pour afficher les infos d'un employé
-            $req = mysqli_query($con , "SELECT * FROM employe WHERE id = $id");
+            // requete de modification
+            $req = mysqli_query($con, "UPDATE employe SET nom = '$nom' , prenom = '$prenom' , age = '$age' WHERE id = $id");
+
             if($req) { // si la requete à été effectué avec succes, on fait un redirection
                 header("location: index.php");
             }else{ 
-                $message = "employé non ajouté";
+                $message = "employé non modifier";
             }
 
         }else {
             // sinon 
             $message = "Veuillez remplir tous les champs";
-        }
-        
+        } 
     }
-
 
     ?>
     <div class="form">
         <a href="index.php" class="back_btn"><img src="Gestion des employés/images/back.png">retour</a>
-        <h2>Modifier l'employé</h2>
+        <h2>Modifier l'employé: <?=$row['nom']?> </h2>
         <p class="erreur_message">
-            veuillez remplir tous les champs
+            <?php
+            if(isset($message)) {
+                echo $message ;
+            }
+
+            ?>
         </p>
         <form action="" method="POST">
             <label>Nom</label>
-            <input type="text" name="nom">
+            <input type="text" name="nom" value="<?=$row['nom']?>">
             <label>prenom</label>
-            <input type="text" name="prenom">
+            <input type="text" name="prenom" value="<?=$row['prenom']?>">
             <label>age</label>
-            <input type="number" name="age">
+            <input type="number" name="age" value="<?=$row['age']?>">
             <input type="submit" value="modifier" name="button">
             
 
